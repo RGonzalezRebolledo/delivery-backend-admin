@@ -17,8 +17,10 @@ const adminLoginLimiter = rateLimit({
     // Por seguridad, contar todas las peticiones POST a esta ruta es lo estándar.
 });
 
-// Ruta de login de administrador blindada con Rate Limiting
-routerLoginAdmin.post('/login/admin', adminLoginLimiter, validateUserAdmin);
+// // Ruta de login de administrador blindada con Rate Limiting
+// routerLoginAdmin.post('/login/admin', adminLoginLimiter, validateUserAdmin);
+routerLoginAdmin.post('/login/admin');
+
 
 export default routerLoginAdmin;
 
