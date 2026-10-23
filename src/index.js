@@ -7,20 +7,20 @@ import cookieParser from "cookie-parser";
 import { pool } from "./db.js";
 
 // --- IMPORTACIÓN DE RUTAS EXCLUSIVAS PARA ADMINISTRACIÓN ---
-import routerLoginAdmin from "./routes/administrator/loginAdmin.route.js";
-import routerAdminDashboardStats from "./routes/administrator/dashboardAdmin.route.js";
-import routerAdminManagment from "./routes/administrator/managment/managment.route.js";
-import routerAvailableDrivers from "./routes/administrator/managment/driver/availableDrivers.route.js";
-import routerLiquidacion from "./routes/administrator/managment/liquidacionesRoutes.js";
-import routerPedidos from "./routes/administrator/administrator/pedidos.routes.js";
-import routerChangeRolClients from "./routes/administrator/administrator/changeRolUser.route.js";
-import routerAbonarWalllet from "./routes/administrator/walletAdmin.route.js";
-import routerContacDriver from "./routes/administrator/contacDriver.route.js";
-import routerClientWalletBalance from "./routes/administrator/client/clientWalletBalance.route.js";
-import routerAdminCreateUsers from "./routes/administrator/registerAdmin.route.js";
-import routerAdmin from "./routes/administrator/authAdmin.route.js";
-import routerVehicles from "./routes/administrator/typeVhicle.route.js";
-import routerServices from "./routes/administrator/typeServices.route.js";
+import routerLoginAdmin from "./routes/loginAdmin.route.js";
+import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
+// import routerAdminManagment from "./routes/administrator/managment/managment.route.js";
+// import routerAvailableDrivers from "./routes/administrator/managment/driver/availableDrivers.route.js";
+// import routerLiquidacion from "./routes/administrator/managment/liquidacionesRoutes.js";
+// import routerPedidos from "./routes/administrator/administrator/pedidos.routes.js";
+// import routerChangeRolClients from "./routes/administrator/administrator/changeRolUser.route.js";
+// import routerAbonarWalllet from "./routes/administrator/walletAdmin.route.js";
+// import routerContacDriver from "./routes/administrator/contacDriver.route.js";
+// import routerClientWalletBalance from "./routes/administrator/client/clientWalletBalance.route.js";
+// import routerAdminCreateUsers from "./routes/administrator/registerAdmin.route.js";
+// import routerAdmin from "./routes/administrator/authAdmin.route.js";
+// import routerVehicles from "./routes/administrator/typeVhicle.route.js";
+// import routerServices from "./routes/administrator/typeServices.route.js";
 import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
 
 const app = express();
@@ -66,18 +66,18 @@ app.get("/", (req, res) => {
 app.use(routerLoginAdmin);
 app.use(routerCheckSesionAdmin);
 app.use(routerAdminDashboardStats);
-app.use(routerAdminManagment);
-app.use(routerAvailableDrivers);
-app.use(routerLiquidacion);
-app.use(routerPedidos);
-app.use(routerChangeRolClients);
-app.use(routerAbonarWalllet);
-app.use(routerContacDriver);
-app.use(routerClientWalletBalance);
-app.use(routerAdminCreateUsers);
-app.use(routerAdmin);
-app.use(routerVehicles);
-app.use(routerServices);
+// app.use(routerAdminManagment);
+// app.use(routerAvailableDrivers);
+// app.use(routerLiquidacion);
+// app.use(routerPedidos);
+// app.use(routerChangeRolClients);
+// app.use(routerAbonarWalllet);
+// app.use(routerContacDriver);
+// app.use(routerClientWalletBalance);
+// app.use(routerAdminCreateUsers);
+// app.use(routerAdmin);
+// app.use(routerVehicles);
+// app.use(routerServices);
 
 // --- MANEJO DE ERRORES GLOBAL ---
 app.use((err, req, res, next) => {
