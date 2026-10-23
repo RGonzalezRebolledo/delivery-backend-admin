@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
-import { validateUserAdmin } from '../controllers/login.controller'; 
+// import { validateUserAdmin } from '../controllers/login.controller'; 
 
 const routerLoginAdmin = Router();
 
