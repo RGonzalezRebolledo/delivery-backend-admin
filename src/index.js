@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { pool } from "./db.js";
+
 
 // --- IMPORTACIÓN DE RUTAS EXCLUSIVAS PARA ADMINISTRACIÓN ---
 import routerLoginAdmin from "./routes/loginAdmin.route.js";
@@ -16,6 +16,8 @@ import routerClientList from "./routes/cliente/clienteList.route.js";
 import routerActiveOrder from "./routes/activeOrder.route.js";
 import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
 import routerPedidos from "./routes/pedidos.routes.js";
+import routerDriversStatus from "./routes/drivers/driverStatus.route.js";
+
 
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
@@ -108,6 +110,7 @@ app.use(routerActiveOrder);
 app.use(routerAdminDashboardStats);
 app.use(routerClientWalletBalance);
 app.use(routerPedidos); // peiddos realizados en la plataforma
+app.use(routerDriversStatus); // conductores y servicios 
 
 // --- MANEJO DE ERRORES GLOBAL ---
 app.use((err, req, res, next) => {
