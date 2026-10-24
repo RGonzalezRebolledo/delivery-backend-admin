@@ -7,7 +7,6 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-
 // --- IMPORTACIÓN DE RUTAS EXCLUSIVAS PARA ADMINISTRACIÓN ---
 import routerLoginAdmin from "./routes/loginAdmin.route.js";
 // import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
@@ -19,7 +18,7 @@ import routerPedidos from "./routes/pedidos.routes.js";
 import routerDriversStatus from "./routes/drivers/driverStatus.route.js";
 import routerGetDrivers from "./routes/drivers/driverGeneral.route.js";
 import routerContacDriver from "./routes/drivers/contacDriver.route.js";
-
+import routerVehicles from "./routes/typeVhicle.route.js";
 
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
@@ -81,7 +80,9 @@ app.set("socketio", io);
 
 // --- GESTIÓN DE EVENTOS SOCKET.IO EN EL ADMIN ---
 io.on("connection", (socket) => {
-  console.log(`⚡ Panel Admin - Dispositivo conectado vía Socket: ${socket.id}`);
+  console.log(
+    `⚡ Panel Admin - Dispositivo conectado vía Socket: ${socket.id}`
+  );
 
   // Canal para unirse a seguimiento de pedidos o salas del admin
   socket.on("join_order_room", (pedido_id) => {
@@ -100,9 +101,7 @@ io.on("connection", (socket) => {
 
 // --- RUTA DE HEALTHCHECK PARA RAILWAY ---
 app.get("/", (req, res) => {
-  res
-    .status(200)
-    .send("🚀 Gazzella Express Backend Admin activo y seguro.");
+  res.status(200).send("🚀 Gazzella Express Backend Admin activo y seguro.");
 });
 
 // --- MONTAJE DE RUTAS DE ADMINISTRACIÓN ---
@@ -112,9 +111,10 @@ app.use(routerActiveOrder);
 app.use(routerAdminDashboardStats);
 app.use(routerClientWalletBalance);
 app.use(routerPedidos); // peiddos realizados en la plataforma
-app.use(routerDriversStatus); // conductores y servicios 
+app.use(routerDriversStatus); // conductores y servicios
 app.use(routerGetDrivers); // lista de conductores no registrados
 app.use(routerContacDriver); // check para indicar que el conductor fue contactado
+app.use(routerVehicles); // obtener y crear vehiculos
 
 // --- MANEJO DE ERRORES GLOBAL ---
 app.use((err, req, res, next) => {
@@ -133,10 +133,6 @@ httpServer.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Backend Admin Gazzella corriendo en puerto ${PORT}`);
   console.log("--------------------------");
 });
-
-
-
-
 
 // process.env.TZ = "America/Caracas"; // Forza al servidor a usar la hora de Venezuela
 // import "dotenv/config";
@@ -200,7 +196,6 @@ httpServer.listen(PORT, "0.0.0.0", () => {
 // app.use(routerAdminDashboardStats);
 
 // app.use(routerClientWalletBalance);
-
 
 // // --- MANEJO DE ERRORES GLOBAL ---
 // app.use((err, req, res, next) => {
