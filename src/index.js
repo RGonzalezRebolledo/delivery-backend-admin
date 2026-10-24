@@ -12,8 +12,6 @@ import { pool } from "./db.js";
 import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 import routerClientList from "./routes/cliente/clienteList.route.js";
 import routerActiveOrder from "./routes/activeOrder.route.js";
-
-/
 import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
 
 
