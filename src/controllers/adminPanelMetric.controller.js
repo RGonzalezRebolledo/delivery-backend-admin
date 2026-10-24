@@ -1,34 +1,33 @@
-// 2. MÉTRICAS DEL PANEL
 import { pool } from "../db.js";
 
-
+// 2. MÉTRICAS DEL PANEL
 export const getPanelMetrics = async (req, res) => {
   try {
-    // Consultas para tus tarjetas financieras del mes actual
+    // Consultas adaptadas a las columnas y estados reales de la tabla pedidos
     const gananciasQuery = await pool.query(`
         SELECT 
-          COALESCE(SUM(tarifa_delivery_usd), 0) as total_usd_ganado,
-          COALESCE(SUM(tarifa_delivery_bs), 0) as total_bs_ganado
+          COALESCE(SUM(total_dolar), 0) as total_usd_ganado,
+          COALESCE(SUM(total), 0) as total_bs_ganado
         FROM pedidos 
-        WHERE estado = 'completado' 
-        AND EXTRACT(MONTH FROM fecha_creacion) = EXTRACT(MONTH FROM CURRENT_DATE)
+        WHERE estado = 'finalizado' 
+        AND EXTRACT(MONTH FROM fecha_pedido) = EXTRACT(MONTH FROM CURRENT_DATE)
       `);
 
     const pendientesQuery = await pool.query(`
         SELECT 
-          COALESCE(SUM(monto_repartidor_usd), 0) as total_usd_pendiente,
-          COALESCE(SUM(monto_repartidor_bs), 0) as total_bs_pendiente
+          COALESCE(SUM(total_dolar), 0) as total_usd_pendiente,
+          COALESCE(SUM(total), 0) as total_bs_pendiente
         FROM pedidos 
-        WHERE pagado_al_repartidor = false
+        WHERE pago_confirmado = false
       `);
 
     const pedidosQuery = await pool.query(`
         SELECT 
           COUNT(*) as total_pedidos,
-          COUNT(CASE WHEN estado = 'completado' THEN 1 END) as completados,
-          COUNT(CASE WHEN estado = 'terminado' THEN 1 END) as terminado
+          COUNT(CASE WHEN estado = 'entregado' THEN 1 END) as entregados,
+          COUNT(CASE WHEN estado = 'finalizado' THEN 1 END) as finalizados
         FROM pedidos
-        WHERE EXTRACT(MONTH FROM fecha_creacion) = EXTRACT(MONTH FROM CURRENT_DATE)
+        WHERE EXTRACT(MONTH FROM fecha_pedido) = EXTRACT(MONTH FROM CURRENT_DATE)
       `);
 
     return res.status(200).json({
@@ -38,6 +37,6 @@ export const getPanelMetrics = async (req, res) => {
     });
   } catch (error) {
     console.error("🔥 Error al obtener métricas:", error);
-    return res.status(500).json({ error: "Error al cargar las métricas." });
+    return res.status(500).json({ error: error.message });
   }
 };
