@@ -18,7 +18,7 @@ import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 // import routerChangeRolClients from "./routes/administrator/administrator/changeRolUser.route.js";
 // import routerAbonarWalllet from "./routes/administrator/walletAdmin.route.js";
 // import routerContacDriver from "./routes/administrator/contacDriver.route.js";
-import routerClientWalletBalance from "./routes/administrator/client/clientWalletBalance.route.js";
+import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
 // import routerAdminCreateUsers from "./routes/administrator/registerAdmin.route.js";
 // import routerAdmin from "./routes/administrator/authAdmin.route.js";
 // import routerVehicles from "./routes/administrator/typeVhicle.route.js";
