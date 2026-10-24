@@ -1,4 +1,7 @@
 // 2. MÉTRICAS DEL PANEL
+import { pool } from "../db.js";
+
+
 export const getPanelMetrics = async (req, res) => {
   try {
     // Consultas para tus tarjetas financieras del mes actual
