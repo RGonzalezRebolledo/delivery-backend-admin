@@ -2,7 +2,7 @@ import pg from 'pg';
 import 'dotenv/config';
 
 // 1. Prioridad absoluta a DATABASE_URL
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_PUBLIC_URL;
 
 console.log("--- DEBUG BASE DE DATOS ---");
 console.log("DATABASE_URL cargada correctamente");
