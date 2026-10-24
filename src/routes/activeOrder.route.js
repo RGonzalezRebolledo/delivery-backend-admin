@@ -10,7 +10,7 @@ const routerActiveOrder = Router();
 
 // 2. Obtener pedidos que no han finalizado
 // GET /api/admin/active-orders
-routerActiveOrder.get('/admin/active-orders', getAdminActiveOrders);
+routerActiveOrder.get('/active-orders', getAdminActiveOrders);
 
 
 
