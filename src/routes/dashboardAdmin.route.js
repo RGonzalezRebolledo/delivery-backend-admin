@@ -4,9 +4,17 @@ import { getPanelMetrics } from "../controllers/adminPanelMetric.controller.js";
 
 const routerAdminDashboardStats = Router();
 
-// Agrupamos las rutas que comparten el mismo path
-// // routerAdminDashboardStats.get("/admin/dashboard-stats", verifyAdminToken, getAdminDashboardStats);
-// routerAdminDashboardStats.get("/panel-metrics", verifyAdminToken, getPanelMetrics);
-routerAdminDashboardStats.get("/panel-metrics", getPanelMetrics);
+// Ruta de métricas libre para pruebas
+routerAdminDashboardStats.get("/panel-metrics", (req, res) => {
+    return res.status(200).json({
+      success: true,
+      message: "Métricas de prueba cargadas correctamente",
+      data: {
+        totalDeliveries: 15,
+        activeDrivers: 4,
+        pendingOrders: 2
+      }
+    });
+  });
 
 export default routerAdminDashboardStats;
