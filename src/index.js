@@ -20,7 +20,6 @@ import routerClientList from "./routes/cliente/clienteList.route.js";
 // import routerAbonarWalllet from "./routes/administrator/walletAdmin.route.js";
 // import routerContacDriver from "./routes/administrator/contacDriver.route.js";
 import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
-import routerClientList from "./routes/cliente/clienteList.route.js";
 // import routerAdminCreateUsers from "./routes/administrator/registerAdmin.route.js";
 // import routerAdmin from "./routes/administrator/authAdmin.route.js";
 // import routerVehicles from "./routes/administrator/typeVhicle.route.js";
