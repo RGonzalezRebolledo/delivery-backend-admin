@@ -4,18 +4,8 @@ import { getPanelMetrics } from "../controllers/adminPanelMetric.controller.js";
 
 const routerAdminDashboardStats = Router();
 
-// Ruta de métricas libre para pruebas
-routerAdminDashboardStats.get("/panel-metrics,", (req, res) => {
-    return res.status(200).json({
-      success: true,
-      message: "Métricas de prueba cargadas correctamente",
-      data: {
-        totalDeliveries: 15,
-        activeDrivers: 4,
-        pendingOrders: 2
-      }
-    });
-  });
+// Ruta usando el controlador real pero sin el middleware de verificación
+routerAdminDashboardStats.get("/panel-metrics", getPanelMetrics);
 
 export default routerAdminDashboardStats;
 
