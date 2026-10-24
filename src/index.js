@@ -11,19 +11,11 @@ import { pool } from "./db.js";
 // import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
 import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 import routerClientList from "./routes/cliente/clienteList.route.js";
+import routerActiveOrder from "./routes/activeOrder.route.js";
 
-// import routerAdminManagment from "./routes/administrator/managment/managment.route.js";
-// import routerAvailableDrivers from "./routes/administrator/managment/driver/availableDrivers.route.js";
-// import routerLiquidacion from "./routes/administrator/managment/liquidacionesRoutes.js";
-// import routerPedidos from "./routes/administrator/administrator/pedidos.routes.js";
-// import routerChangeRolClients from "./routes/administrator/administrator/changeRolUser.route.js";
-// import routerAbonarWalllet from "./routes/administrator/walletAdmin.route.js";
-// import routerContacDriver from "./routes/administrator/contacDriver.route.js";
+/
 import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
-// import routerAdminCreateUsers from "./routes/administrator/registerAdmin.route.js";
-// import routerAdmin from "./routes/administrator/authAdmin.route.js";
-// import routerVehicles from "./routes/administrator/typeVhicle.route.js";
-// import routerServices from "./routes/administrator/typeServices.route.js";
+
 
 
 
@@ -69,7 +61,7 @@ app.get("/", (req, res) => {
 // --- MONTAJE DE RUTAS DE ADMINISTRACIÓN ---
  app.use(routerLoginAdmin);
  app.use(routerClientList)
-// app.use(routerCheckSesionAdmin);
+app.use(routerActiveOrder);
 app.use(routerAdminDashboardStats);
 
 // app.use(routerAdminManagment);
