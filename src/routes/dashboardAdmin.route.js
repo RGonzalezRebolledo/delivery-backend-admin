@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getPanelMetrics } from "../controllers/adminPanelMetric.controller.js"; 
-import { verifyAdminToken } from "../middlewares/verifyAdminToken.js";
+// import { verifyAdminToken } from "../middlewares/verifyAdminToken.js";
 
 const routerAdminDashboardStats = Router();
 

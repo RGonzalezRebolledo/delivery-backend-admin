@@ -8,7 +8,9 @@ import { pool } from "./db.js";
 
 // --- IMPORTACIÓN DE RUTAS EXCLUSIVAS PARA ADMINISTRACIÓN ---
 import routerLoginAdmin from "./routes/loginAdmin.route.js";
+import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
 import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
+
 // import routerAdminManagment from "./routes/administrator/managment/managment.route.js";
 // import routerAvailableDrivers from "./routes/administrator/managment/driver/availableDrivers.route.js";
 // import routerLiquidacion from "./routes/administrator/managment/liquidacionesRoutes.js";
@@ -21,7 +23,8 @@ import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 // import routerAdmin from "./routes/administrator/authAdmin.route.js";
 // import routerVehicles from "./routes/administrator/typeVhicle.route.js";
 // import routerServices from "./routes/administrator/typeServices.route.js";
-import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
+
+
 
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
@@ -63,8 +66,8 @@ app.get("/", (req, res) => {
 });
 
 // --- MONTAJE DE RUTAS DE ADMINISTRACIÓN ---
-app.use(routerLoginAdmin);
-app.use(routerCheckSesionAdmin);
+// app.use(routerLoginAdmin);
+// app.use(routerCheckSesionAdmin);
 app.use(routerAdminDashboardStats);
 
 // app.use(routerAdminManagment);
