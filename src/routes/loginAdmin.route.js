@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
+import { validateUserAdmin } from '../controllers/login.controller';
 // import { validateUserAdmin } from '../controllers/login.controller'; 
 
 const routerLoginAdmin = Router();
@@ -19,7 +20,7 @@ const adminLoginLimiter = rateLimit({
 
 // // Ruta de login de administrador blindada con Rate Limiting
 // routerLoginAdmin.post('/login/admin', adminLoginLimiter, validateUserAdmin);
-routerLoginAdmin.post('/login/admin');
+routerLoginAdmin.post('/login/admin',validateUserAdmin);
 
 
 export default routerLoginAdmin;
