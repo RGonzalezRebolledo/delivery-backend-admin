@@ -15,6 +15,7 @@ import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 import routerClientList from "./routes/cliente/clienteList.route.js";
 import routerActiveOrder from "./routes/activeOrder.route.js";
 import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
+import routerPedidos from "./routes/pedidos.routes.js";
 
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
@@ -106,6 +107,7 @@ app.use(routerClientList);
 app.use(routerActiveOrder);
 app.use(routerAdminDashboardStats);
 app.use(routerClientWalletBalance);
+app.use(routerPedidos); // peiddos realizados en la plataforma
 
 // --- MANEJO DE ERRORES GLOBAL ---
 app.use((err, req, res, next) => {
