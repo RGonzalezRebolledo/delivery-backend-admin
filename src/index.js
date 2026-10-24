@@ -10,6 +10,7 @@ import { pool } from "./db.js";
  import routerLoginAdmin from "./routes/loginAdmin.route.js";
 // import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
 import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
+import routerClientList from "./routes/cliente/clienteList.route.js";
 
 // import routerAdminManagment from "./routes/administrator/managment/managment.route.js";
 // import routerAvailableDrivers from "./routes/administrator/managment/driver/availableDrivers.route.js";
@@ -19,6 +20,7 @@ import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 // import routerAbonarWalllet from "./routes/administrator/walletAdmin.route.js";
 // import routerContacDriver from "./routes/administrator/contacDriver.route.js";
 import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.route.js";
+import routerClientList from "./routes/cliente/clienteList.route.js";
 // import routerAdminCreateUsers from "./routes/administrator/registerAdmin.route.js";
 // import routerAdmin from "./routes/administrator/authAdmin.route.js";
 // import routerVehicles from "./routes/administrator/typeVhicle.route.js";
@@ -67,6 +69,7 @@ app.get("/", (req, res) => {
 
 // --- MONTAJE DE RUTAS DE ADMINISTRACIÓN ---
  app.use(routerLoginAdmin);
+ app.use(routerClientList)
 // app.use(routerCheckSesionAdmin);
 app.use(routerAdminDashboardStats);
 
