@@ -1,6 +1,6 @@
 // routes/pedidosRoutes.js
 import { Router } from 'express';
-import { getServiciosRealizados } from '../controllers/pedidos.controller'; 
+import { getServiciosRealizados } from '../controllers/pedidos.controller.js'; 
 // import { verifyAdminToken } from '../../middlewares/verifyAdminToken.js';
 
 const routerPedidos = Router();
