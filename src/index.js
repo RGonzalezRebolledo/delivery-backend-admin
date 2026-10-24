@@ -18,6 +18,7 @@ import routerClientWalletBalance from "./routes/cliente/clientWalletBalance.rout
 import routerPedidos from "./routes/pedidos.routes.js";
 import routerDriversStatus from "./routes/drivers/driverStatus.route.js";
 import routerGetDrivers from "./routes/drivers/driverGeneral.route.js";
+import routerContacDriver from "./routes/drivers/contacDriver.route.js";
 
 
 const app = express();
@@ -113,6 +114,7 @@ app.use(routerClientWalletBalance);
 app.use(routerPedidos); // peiddos realizados en la plataforma
 app.use(routerDriversStatus); // conductores y servicios 
 app.use(routerGetDrivers); // lista de conductores no registrados
+app.use(routerContacDriver); // check para indicar que el conductor fue contactado
 
 // --- MANEJO DE ERRORES GLOBAL ---
 app.use((err, req, res, next) => {
