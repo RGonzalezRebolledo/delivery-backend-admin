@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getClientsWithWalletBalance } from '../../controllers/cliente/clientWalletBalance.controller';
+import { getClientsWithWalletBalance } from '../../controllers/cliente/clientWalletBalance.controller.js';
 // import { verifyAdminToken } from '../../middlewares/verifyAdminToken.js';
 
 const routerClientWalletBalance = Router();
