@@ -7,8 +7,8 @@ import cookieParser from "cookie-parser";
 import { pool } from "./db.js";
 
 // --- IMPORTACIÓN DE RUTAS EXCLUSIVAS PARA ADMINISTRACIÓN ---
-import routerLoginAdmin from "./routes/loginAdmin.route.js";
-import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
+// import routerLoginAdmin from "./routes/loginAdmin.route.js";
+// import routerCheckSesionAdmin from "./routes/checkSesionadmin.route.js";
 import routerAdminDashboardStats from "./routes/dashboardAdmin.route.js";
 
 // import routerAdminManagment from "./routes/administrator/managment/managment.route.js";
