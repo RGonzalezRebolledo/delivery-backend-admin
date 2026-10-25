@@ -1,8 +1,7 @@
 
 import { Router } from "express";
 import { 
-  getVehicles, 
-  // createVehicle 
+  getVehicles,createVehicle 
 } from "../controllers/typeVehicle.controller.js"
 // import { verifyAdminToken } from "../middlewares/verifyAdminToken.js";
 
@@ -12,8 +11,9 @@ const routerVehicles = Router();
 // routerVehicles.route("/utils/vehicle") // Definimos la ruta limpia
 routerVehicles.route(["/utils/vehicle", "/utils/vehicles"])  
 .get(getVehicles)
+
     // El middleware va dentro del método
-  // .post(verifyAdminToken, createVehicle);
+  .post(createVehicle);
 export default routerVehicles;
 
 

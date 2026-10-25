@@ -21,7 +21,7 @@ import routerContacDriver from "./routes/drivers/contacDriver.route.js";
 import routerVehicles from "./routes/typeVhicle.route.js";
 import routerAvailableDrivers from "./routes/drivers/AvailableDriver.route.js";
 import routerLiquidacion from "./routes/drivers/liquidacionesRoutes.js";
-
+import routerServices from "./routes/typeServices.route.js";
 
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
@@ -118,6 +118,7 @@ app.use(routerDriversStatus); // conductores y servicios
 app.use(routerGetDrivers); // lista de conductores no registrados
 app.use(routerContacDriver); // check para indicar que el conductor fue contactado
 app.use(routerVehicles); // obtener y crear vehiculos
+app.use(routerServices); // obtener y crear servicios
 app.use(routerAvailableDrivers); // conductores activos
 app.use(routerLiquidacion); // conductores activos
 
