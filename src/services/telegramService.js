@@ -4,7 +4,7 @@
  * @param {object} datosPedido - Objeto con la info del Pedido
  */
 
-import fetch from "node-fetch";
+// import fetch from "node-fetch";
 
 export const enviarNotificacionTelegram = async (telegramChatId, datosPedido) => {
   if (!telegramChatId) {
