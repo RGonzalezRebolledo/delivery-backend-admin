@@ -1,5 +1,5 @@
 import bcryptjs from 'bcryptjs'
-import { pool } from "../../db.js";
+import { pool } from "../db.js";
 import crypto from 'crypto' // 🔑 Importación nativa para generar tokens aleatorios
 import { enviarCorreoVerificacion } from '../services/emailService.js'; 
 
