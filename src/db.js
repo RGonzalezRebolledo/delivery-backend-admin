@@ -1,36 +1,63 @@
 import pg from 'pg';
 import 'dotenv/config';
 
-// 1. Prioridad absoluta a DATABASE_URL
-const connectionString = process.env.DATABASE_PUBLIC_URL;
+// 1. Prioridad a DATABASE_URL (red interna de Railway) y respaldo con DATABASE_PUBLIC_URL
+const connectionString = process.env.DATABASE_URL || process.env.DATABASE_PUBLIC_URL;
 
 console.log("--- DEBUG BASE DE DATOS ---");
-console.log("DATABASE_URL cargada correctamente");
+console.log("URL de conexión configurada correctamente");
 console.log("---------------------------");
 
 export const pool = new pg.Pool({
     connectionString: connectionString,
-    // SSL es obligatorio para Railway
+    // SSL es obligatorio para entornos cloud como Railway
     ssl: {
         rejectUnauthorized: false
     },
-    // Fuerza la zona horaria a Venezuela desde el inicio de la sesión
+    // Fuerza la zona horaria a Venezuela de manera global en cada sesión del pool
     options: "-c timezone=America/Caracas"
 });
 
-// 2. Configuración adicional por seguridad en cada nueva conexión
-pool.on('connect', async (client) => {
-    try {
-        await client.query("SET timezone = 'America/Caracas'");
-        console.log(`✅ Conexión establecida: Hora de Venezuela (America/Caracas)`);
-    } catch (err) {
-        console.error('❌ Error al sincronizar zona horaria:', err);
-    }
-});
-
+// 2. Manejo de errores globales del pool (mantenemos esto por seguridad)
 pool.on('error', (err) => {
     console.error('❌ Error inesperado en el pool de conexión:', err);
 });
+
+
+
+// import pg from 'pg';
+// import 'dotenv/config';
+
+// // 1. Prioridad absoluta a DATABASE_URL
+// const connectionString = process.env.DATABASE_PUBLIC_URL;
+
+// console.log("--- DEBUG BASE DE DATOS ---");
+// console.log("DATABASE_URL cargada correctamente");
+// console.log("---------------------------");
+
+// export const pool = new pg.Pool({
+//     connectionString: connectionString,
+//     // SSL es obligatorio para Railway
+//     ssl: {
+//         rejectUnauthorized: false
+//     },
+//     // Fuerza la zona horaria a Venezuela desde el inicio de la sesión
+//     options: "-c timezone=America/Caracas"
+// });
+
+// // 2. Configuración adicional por seguridad en cada nueva conexión
+// pool.on('connect', async (client) => {
+//     try {
+//         await client.query("SET timezone = 'America/Caracas'");
+//         console.log(`✅ Conexión establecida: Hora de Venezuela (America/Caracas)`);
+//     } catch (err) {
+//         console.error('❌ Error al sincronizar zona horaria:', err);
+//     }
+// });
+
+// pool.on('error', (err) => {
+//     console.error('❌ Error inesperado en el pool de conexión:', err);
+// });
 
 
 // import pg from 'pg';
