@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { cambiarClienteARepartidor, cambiarConductorACliente } from' ../controllers/changeRoluser.controller.js';
+import { cambiarClienteARepartidor, cambiarConductorACliente } from' ../controllers/changeRolUsers.controller.js';
 // import { verifyAdminToken } from '../../middlewares/verifyAdminToken.js';
 
 const routerChangeRolClients = Router();
