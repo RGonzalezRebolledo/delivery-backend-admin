@@ -28,6 +28,7 @@ import routerDriverRegisterModal from "./routes/drivers/driverRegisterModal.rout
 
 
 
+
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
 
