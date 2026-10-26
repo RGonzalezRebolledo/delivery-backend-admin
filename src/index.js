@@ -23,6 +23,10 @@ import routerAvailableDrivers from "./routes/drivers/AvailableDriver.route.js";
 import routerLiquidacion from "./routes/drivers/liquidacionesRoutes.js";
 import routerServices from "./routes/typeServices.route.js";
 import routerAdminCreateUsers from "./routes/registerAdmin.route.js";
+import routerChangeRolClients from "./routes/changeRolUser.route.js";
+import routerContacDriver from "./routes/drivers/contacDriver.route.js";
+
+
 const app = express();
 app.set("trust proxy", 1); // Soluciona el warning de express-rate-limit en Railway
 
@@ -122,6 +126,8 @@ app.use(routerServices); // obtener y crear servicios
 app.use(routerAvailableDrivers); // conductores activos
 app.use(routerLiquidacion); // conductores activos
 app.use(routerAdminCreateUsers) // creo usuario
+app.use(routerChangeRolClients) // cambiar roles del cliente y conductor
+app.use(routerContacDriver) //identificar si ya contactamos al conductor para la inspeccion
 
 // --- MANEJO DE ERRORES GLOBAL ---
 app.use((err, req, res, next) => {
