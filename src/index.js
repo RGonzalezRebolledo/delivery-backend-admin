@@ -26,7 +26,7 @@ import routerAdminCreateUsers from "./routes/registerAdmin.route.js";
 import routerChangeRolClients from "./routes/changeRolUser.route.js";
 import routerDriverRegisterModal from "./routes/drivers/driverRegisterModal.route.js";
 import routerExchangeRate from "./routes/exchangeRate.route.js";
-
+import routerUnassingOrder from "./routes/drivers/unassingOrder.route.js";
 
 
 
@@ -132,6 +132,7 @@ app.use(routerAdminCreateUsers) // creo usuario
 app.use(routerChangeRolClients) // cambiar roles del cliente y conductor
 app.use(routerDriverRegisterModal) // modificar, suspender y activar conductor
 app.use(routerExchangeRate) // dolar actual del sistema
+app.use(routerUnassingOrder) // desvincular orden al chofer desde el admin 
 
 
 // --- MANEJO DE ERRORES GLOBAL ---
