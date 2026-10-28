@@ -11,6 +11,6 @@ const routerUnassingOrder = Router();
 
 
 // desvincular servicio a conductor
-routerAdminManagment.post("/admin/unassign-order", unassignOrderAdmin);
+routerUnassingOrder.post("/admin/unassign-order", unassignOrderAdmin);
 
 export default routerUnassingOrder;
